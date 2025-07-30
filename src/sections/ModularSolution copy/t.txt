@@ -1,0 +1,826 @@
+'use client'
+
+import { useState, useRef, useEffect, useCallback } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+import { Loader2 } from 'lucide-react'
+
+interface StepItem {
+  title: string
+  description?: string
+  videoUrl?: string
+  thumbnail?: string
+}
+
+interface StepCardProps {
+  variant: 'inspect' | 'plan' | 'build'
+  icon: string
+  title: string
+  description: string
+  steps: StepItem[]
+  videoUrl: string
+  thumbnail: string
+  className?: string
+}
+
+const variants = {
+  inspect: {
+    iconColor: '#EF4A4A',
+    cardGradient: 'linear-gradient(54deg, #500505 0%, #EF4A4A 100%)',
+    bgGradient: 'linear-gradient(118deg, rgba(239, 74, 74, 0.04) 0%, rgba(35, 31, 32, 0.04) 96%)',
+    circleGradient:
+      'linear-gradient(241deg, rgba(153, 37, 37, 0.30) 0%, rgba(171.15, 10.04, 10.04, 0.30) 100%)',
+    circleBorder: '1px solid #F27070',
+    circlePosition: { left: '383px', top: '18px' },
+  },
+  plan: {
+    iconColor: '#009CA6',
+    cardGradient: 'linear-gradient(54deg, #0F88A1 0%, #00D4FF 100%)',
+    bgGradient: 'linear-gradient(118deg, rgba(0, 212, 255, 0.04) 0%, rgba(35, 31, 32, 0.04) 96%)',
+    circleGradient:
+      'linear-gradient(241deg, rgba(13.78, 202.97, 242.38, 0.30) 0%, rgba(2.24, 18.51, 21.87, 0.30) 100%)',
+    circleBorder: '1px solid rgba(112.40, 223.99, 246.16, 0.70)',
+    circlePosition: { left: '-338px', top: '-347px' },
+  },
+  build: {
+    iconColor: '#F1B434',
+    cardGradient: 'linear-gradient(54deg, #996B0B 0%, #F1B434 100%)',
+    bgGradient: 'linear-gradient(118deg, rgba(241, 180, 52, 0.04) 0%, rgba(35, 31, 32, 0.04) 96%)',
+    circleGradient:
+      'linear-gradient(241deg, rgba(241, 180, 52, 0.30) 0%, rgba(2, 19, 22, 0.30) 100%)',
+    circleBorder: '1px solid rgba(241, 180, 52, 0.70)',
+    hasDoubleCircle: true,
+    circlePositions: [
+      { left: '283px', top: '328px' },
+      { left: '-389px', top: '-418px' },
+    ],
+  },
+} as const
+
+const AccordionItem = ({
+  title,
+  description,
+  isOpen,
+  onToggle,
+  isLast,
+}: {
+  title: string
+  description?: string
+  isOpen: boolean
+  onToggle: () => void
+  isLast: boolean
+}) => {
+  return (
+    <div>
+      <div onClick={onToggle} className="cursor-pointer">
+        <div className="flex justify-between items-center py-3 lg:py-4">
+          <span
+            style={{
+              color: isOpen ? '#FFFFFF' : '#DEDCDD',
+              transition: 'color 0.2s ease',
+            }}
+            className="text-sm lg:text-base font-semibold leading-snug"
+          >
+            {title}
+          </span>
+          <div className="w-6 h-6 flex items-center justify-center">
+            {isOpen ? (
+              <div className="w-3 h-0.5 bg-[#DEDCDD]" />
+            ) : (
+              <div className="relative">
+                <div className="w-[18px] h-0.5 bg-[#DEDCDD] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                <div className="w-0.5 h-[18px] bg-[#DEDCDD] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+              </div>
+            )}
+          </div>
+        </div>
+
+        <AnimatePresence>
+          {isOpen && description && (
+            <motion.div
+              initial={{ height: 0, opacity: 0, marginBottom: 0 }}
+              animate={{ height: 'auto', opacity: 1, marginBottom: 16 }}
+              exit={{ height: 0, opacity: 0, marginBottom: 0 }}
+              transition={{ duration: 0.2 }}
+              className="overflow-hidden"
+            >
+              <p className="text-[#DEDCDD] text-sm lg:text-[15px] font-normal leading-relaxed">
+                {description}
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {!isLast && <div className="h-px bg-white/[0.06]" />}
+    </div>
+  )
+}
+
+const VideoLoader = ({ variant }: { variant: 'inspect' | 'plan' | 'build' }) => {
+  const style = variants[variant]
+  
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-10"
+    >
+      {/* Outer rotating circle */}
+      <motion.div
+        className="relative w-24 h-24"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+      >
+        {/* Three rotating gradient circles */}
+        {[...Array(3)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute inset-0"
+            style={{
+              border: `2px solid ${style.iconColor}`,
+              borderRadius: '50%',
+              borderRightColor: 'transparent',
+              borderBottomColor: 'transparent',
+              transform: `rotate(${i * 120}deg)`,
+            }}
+            animate={{
+              rotate: [0, 360],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              rotate: { duration: 2, repeat: Infinity, ease: "linear" },
+              scale: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 },
+            }}
+          />
+        ))}
+        
+        {/* Center pulsing dot */}
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-3 h-3 -ml-1.5 -mt-1.5 rounded-full"
+          style={{ backgroundColor: style.iconColor }}
+          animate={{
+            scale: [1, 1.5, 1],
+            opacity: [0.8, 0.3, 0.8],
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      </motion.div>
+    </motion.div>
+  )
+}
+
+let videoControllerInitialized = false;
+
+export function StepCard({
+  variant,
+  icon,
+  title,
+  description,
+  steps,
+  videoUrl: defaultVideoUrl,
+  thumbnail: defaultThumbnail,
+  className,
+}: StepCardProps) {
+  const [openSteps, setOpenSteps] = useState<string>(steps[0].title)
+  const [isLoading, setIsLoading] = useState(true)
+  const [key, setKey] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+const progressBarRef = useRef(null);
+
+
+useEffect(() => {
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+
+
+  
+  const handleMouseMove = (e) => {
+    if (isDragging && progressBarRef.current && videoRef.current) {
+      const rect = progressBarRef.current.getBoundingClientRect();
+      const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+      const percentage = x / rect.width;
+      videoRef.current.currentTime = percentage * videoRef.current.duration;
+    }
+  };
+
+  document.addEventListener('mouseup', handleMouseUp);
+  document.addEventListener('mousemove', handleMouseMove);
+
+  return () => {
+    document.removeEventListener('mouseup', handleMouseUp);
+    document.removeEventListener('mousemove', handleMouseMove);
+  };
+}, [isDragging]);
+
+useEffect(() => {
+  if (videoControllerInitialized) return;
+  
+  const handleGlobalPlay = (e: Event) => {
+    const videos = document.querySelectorAll('video');
+    videos.forEach(video => {
+      if (video !== e.target && !video.paused) {
+        video.pause();
+        // Also update local state if needed
+        if (video === videoRef.current) {
+          setIsPlaying(false);
+        }
+      }
+    });
+  };
+
+  document.addEventListener('play', handleGlobalPlay, true);
+  videoControllerInitialized = true;
+
+  return () => {
+    document.removeEventListener('play', handleGlobalPlay, true);
+    videoControllerInitialized = false;
+  };
+}, []);
+
+  const style = variants[variant]
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  // Get current step's video URL and thumbnail or fall back to default
+  const currentStep = steps.find(step => step.title === openSteps)
+  const currentVideoUrl = currentStep?.videoUrl || defaultVideoUrl
+  const currentThumbnail = currentStep?.thumbnail || defaultThumbnail
+
+
+  useEffect(() => {
+    setKey(prevKey => prevKey + 1)
+    setIsLoading(true)
+  }, [openSteps])
+
+  useEffect(() => {
+    // Pause current video when changing steps
+    if (videoRef.current) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+    setKey(prevKey => prevKey + 1);
+    setIsLoading(true);
+  }, [openSteps]);
+
+  const [currentTime, setCurrentTime] = useState(0);
+  const [hasError, setHasError] = useState(false);
+
+  const cleanupVideoResources = useCallback(() => {
+    if (videoRef.current) {
+      // Pause and reset video state
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+      
+      // Remove all event listeners
+      videoRef.current.onloadeddata = null;
+      videoRef.current.onerror = null;
+      videoRef.current.onplay = null;
+      videoRef.current.onpause = null;
+      videoRef.current.ontimeupdate = null;
+      videoRef.current.onfullscreenchange = null;
+      
+      // Clear source and force browser to release resources
+      videoRef.current.removeAttribute('src');
+      videoRef.current.load();
+      
+      // Reset all state
+      setIsPlaying(false);
+      setCurrentTime(0);
+      setIsLoading(true);
+      setHasError(false);
+    }
+  }, []);
+
+  const handleVideoLoad = () => {
+    setIsLoading(false);
+    setHasError(false);
+  }
+
+  const handleVideoError = (e) => {
+    console.error('Video loading error:', e);
+    setIsLoading(false);
+    setHasError(true);
+    // Attempt to recover by reloading the video
+    if (videoRef.current) {
+      videoRef.current.load();
+    }
+  }
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  useEffect(() => {
+    // Show loader and reset video when source changes
+    setIsLoading(true);
+    setHasError(false);
+    
+    const videoElement = videoRef.current;
+    if (videoElement) {
+      // Clean up existing resources
+      cleanupVideoResources();
+      
+      // Set up new video source
+      try {
+        videoElement.src = currentVideoUrl;
+        videoElement.load();
+        
+        // Add error recovery mechanism
+        const errorRetry = (e) => {
+          console.error('Video loading error, attempting recovery:', e);
+          if (!hasError) {
+            setHasError(true);
+            // Attempt recovery by reloading after a short delay
+            setTimeout(() => {
+              if (videoElement) {
+                cleanupVideoResources();
+                videoElement.src = currentVideoUrl;
+                videoElement.load();
+              }
+            }, 1000);
+          }
+        };
+        
+        videoElement.addEventListener('error', errorRetry);
+        
+        // Cleanup function
+        return () => {
+          videoElement.removeEventListener('error', errorRetry);
+          cleanupVideoResources();
+        };
+      } catch (error) {
+        console.error('Error setting up video:', error);
+        setHasError(true);
+        setIsLoading(false);
+      }
+    }
+  }, [currentVideoUrl, cleanupVideoResources, hasError]);
+
+  const handleFullscreen = async () => {
+    if (videoRef.current) {
+      try {
+        // Enable controls before going fullscreen
+        videoRef.current.controls = true;
+        await videoRef.current.requestFullscreen();
+        
+        // Add fullscreenchange event listener
+        const handleFullscreenChange = () => {
+          if (!document.fullscreenElement) {
+            // Disable controls when exiting fullscreen
+            videoRef.current.controls = false;
+          }
+        };
+        
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        // Clean up listener when exiting fullscreen
+        videoRef.current.addEventListener('fullscreenchange', () => {
+          document.removeEventListener('fullscreenchange', handleFullscreenChange);
+        }, { once: true });
+      } catch (err) {
+        console.error('Error attempting to enable fullscreen:', err);
+      }
+    }
+  };
+  return (
+    <div
+      className={`flex flex-col lg:flex-row gap-4 lg:gap-8 relative rounded-2xl overflow-hidden border border-[rgba(201,198,198,0.09)] ${className}`}
+      style={{
+        background: style.bgGradient,
+        backdropFilter: 'blur(45px)',
+        boxShadow: '0px 3px 3px rgba(0, 0, 0, 0.12)',
+      }}
+    >
+      {/* Left Content */}
+      <div className="flex-1 p-6 lg:p-[42px] flex flex-col">
+        <div className="flex items-center gap-[7px] mb-3">
+          <div className="w-6 h-6">
+            <Image src={icon} alt={title} width={24} height={24} />
+          </div>
+          <span
+            style={{ color: style.iconColor }}
+            className="text-base lg:text-lg font-bold uppercase leading-[27px] tracking-[0.72px]"
+          >
+            {title}
+          </span>
+        </div>
+
+        <h3 className="text-2xl lg:text-[32px] font-normal leading-tight lg:leading-[41.6px] mb-4 lg:mb-6">
+          {description}
+        </h3>
+
+        <div className="space-y-0">
+          {steps.map((step, index) => (
+            <AccordionItem
+              key={step.title}
+              title={step.title}
+              description={step.description}
+              isOpen={openSteps === step.title}
+              onToggle={() => {
+                setOpenSteps(openSteps === step.title ? '' : step.title)
+              }}
+              isLast={index === steps.length - 1}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Right Video Section */}
+      <div className="w-full h-[471px] lg:w-[742px] relative"> {/* Updated height for all screens */}
+      <div
+          className="absolute inset-0 overflow-hidden"
+          style={{
+            background: style.cardGradient,
+            borderTopRightRadius: '16px',
+            borderBottomLeftRadius: '0px',
+            borderBottomRightRadius: '16px',
+            borderTopLeftRadius: '0px'
+          }}
+        >
+          {/* Circular Gradient - Hidden on mobile */}
+          <div className="hidden lg:block">
+            {variant === 'build' ? (
+              <>
+                <div
+                  className="absolute w-[651px] h-[651px]"
+                  style={{
+                    ...style.circlePositions[0],
+                    background: style.circleGradient,
+                    borderRadius: '9999px',
+                    border: style.circleBorder,
+                  }}
+                />
+                <div
+                  className="absolute w-[651px] h-[651px]"
+                  style={{
+                    ...style.circlePositions[1],
+                    background: style.circleGradient,
+                    borderRadius: '9999px',
+                    border: style.circleBorder,
+                  }}
+                />
+              </>
+            ) : (
+              <div
+                className="absolute w-[651px] h-[651px]"
+                style={{
+                  ...style.circlePosition,
+                  background: style.circleGradient,
+                  borderRadius: '9999px',
+                  border: style.circleBorder,
+                }}
+              />
+            )}
+          </div>
+
+{/* Video Container */}
+{/* Video Container */}
+{/* Video Container */}
+{/* Video Container */}
+<div
+  className="absolute rounded-2xl overflow-hidden bg-[#fdf7f2]"
+  style={{
+    width: 'calc(100% - 56px)', // Adjusted width calculation
+    height: '414.73px',
+    left: '28px',
+    right: '28px',  // Added right positioning
+    top: '28px',
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    '@media (min-width: 1024px)': {
+      width: '686px', // Desktop width remains unchanged
+      left: '28px',
+    }
+  }}
+>
+  <AnimatePresence>
+    {isLoading && <VideoLoader variant={variant} />}
+  </AnimatePresence>
+
+  {/* Main Container */}
+  <div className="relative w-full h-full">
+    {/* Video Section */}
+    <div className="w-full h-[325px] rounded-tl-2xl rounded-tr-2xl overflow-hidden">
+    <video
+        key={key}
+        ref={videoRef}
+        className={`w-full h-full object-contain ${isPlaying ? 'z-20' : 'z-0'}`}
+        loop
+        playsInline
+        webkit-playsinline="true"
+        x-webkit-airplay="allow"
+        preload="metadata"
+        muted
+        controlsList="nodownload noplaybackrate"
+        disablePictureInPicture
+        autoPlay={false}
+        controls={false}
+        onLoadedData={handleVideoLoad}
+        onError={handleVideoError}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onTimeUpdate={() => {
+          if (videoRef.current) {
+            setCurrentTime(videoRef.current.currentTime || 0);
+          }
+        }}
+        onFullscreenChange={(e) => {
+          if (document.fullscreenElement) {
+            e.target.controls = true;
+          } else {
+            e.target.controls = false;
+          }
+        }}
+        playbackRate={1}
+        style={{
+          WebkitPlaysinline: "true",
+          playsInline: "true",
+          WebkitAllowsInlineMediaPlayback: "true",
+          WebkitEnterFullscreen: "true",
+          WebkitAirplay: "allow",
+          objectFit: "contain",
+          width: "100%",
+          height: "100%",
+          backgroundColor: "#000"
+        }}
+      >
+        {/* Primary source - MP4 */}
+        <source src={currentVideoUrl} type="video/mp4" />
+        {/* Safari-specific formats with codecs */}
+        <source src={currentVideoUrl} type="video/mp4; codecs='avc1.42E01E, mp4a.40.2'" />
+        <source src={currentVideoUrl.replace('.mp4', '.mov')} type="video/quicktime" />
+        <source src={currentVideoUrl.replace('.mp4', '.m4v')} type="video/x-m4v" />
+        {/* Fallback message for unsupported browsers */}
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    {/* Custom Controls Section */}
+    <div className="w-full h-[89.73px] bg-[#fdf7f2] flex items-center px-4">
+    {/* Play/Pause Button */}
+  <button 
+    onClick={() => videoRef.current?.paused ? videoRef.current.play() : videoRef.current?.pause()}
+    className="w-8 h-8 flex items-center justify-center mr-4 hover:opacity-80 transition-opacity"
+  >
+    {videoRef.current?.paused ? (
+      <div 
+        className="w-0 h-0 ml-1"
+        style={{
+          borderTop: '8px solid transparent',
+          borderLeft: '16px solid #F26A1B',
+          borderBottom: '8px solid transparent'
+        }}
+      />
+    ) : (
+      <div className="w-4 h-4 flex gap-1">
+        <div className="w-[2px] h-full bg-[#F26A1B]" />
+        <div className="w-[2px] h-full bg-[#F26A1B]" />
+      </div>
+    )}
+  </button>
+
+  {/* Progress Bar */}
+  <div 
+    ref={progressBarRef}
+    className="flex-1 h-6 flex items-center relative group cursor-pointer"
+    onMouseDown={(e) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+      const percentage = x / rect.width;
+      if (videoRef.current) {
+        videoRef.current.currentTime = percentage * videoRef.current.duration;
+      }
+      setIsDragging(true);
+    }}
+  >
+    {/* Progress Bar Track */}
+    <div className="absolute h-1.5 w-full bg-[#E5E7EB] rounded-full overflow-hidden">
+      {/* Progress Bar Fill */}
+      <div 
+        className="h-full bg-[#F7B690] group-hover:bg-[#F26A1B] transition-all duration-100"
+        style={{ 
+          width: `${((videoRef.current?.currentTime || 0) / (videoRef.current?.duration || 1)) * 100}%`
+        }} 
+      />
+    </div>
+
+    {/* Slider Handle */}
+    <div 
+      className={`absolute h-4 w-4 bg-[#F26A1B] rounded-full -ml-2 cursor-pointer transform transition-transform duration-100 ${isDragging ? 'scale-100' : 'scale-75 opacity-0 group-hover:opacity-100 group-hover:scale-100'}`}
+      style={{ 
+        left: `${((videoRef.current?.currentTime || 0) / (videoRef.current?.duration || 1)) * 100}%`
+      }}
+      onMouseDown={(e) => {
+        e.stopPropagation();
+        setIsDragging(true);
+      }}
+    >
+      <div className="absolute inset-[2px] bg-white rounded-full" />
+    </div>
+
+    {/* Time Preview */}
+    <div 
+      className={`absolute top-[-24px] bg-black text-white text-xs px-2 py-1 rounded transform -translate-x-1/2 pointer-events-none ${isDragging ? 'block' : 'hidden group-hover:block'}`}
+      style={{ 
+        left: `${((videoRef.current?.currentTime || 0) / (videoRef.current?.duration || 1)) * 100}%`
+      }}
+    >
+      {formatTime(videoRef.current?.currentTime || 0)}
+    </div>
+  </div>
+
+  {/* Fullscreen Button */}
+  <button 
+  onClick={() => {
+    if (videoRef.current) {
+      if (!document.fullscreenElement) {
+        // Enable controls and enter fullscreen
+        videoRef.current.setAttribute('controls', 'true');
+        videoRef.current.requestFullscreen();
+      }
+    }
+  }}
+  className="w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity ml-4"
+>
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <path d="M3 17V13H4.5V15.5H7V17H3ZM13 17V15.5H15.5V13H17V17H13ZM3 7V3H7V4.5H4.5V7H3ZM15.5 7V4.5H13V3H17V7H15.5Z" fill="#F26A1B"/>
+  </svg>
+</button>
+
+</div>
+
+ {/* Thumbnail Overlay */}
+{!isPlaying && (
+  <div 
+    className="absolute inset-0 z-10 cursor-pointer group"
+    onClick={() => {
+      if (videoRef.current) {
+        try {
+          videoRef.current.play();
+          setIsPlaying(true);
+        } catch (error) {
+          console.error('Error playing video:', error);
+        }
+      }
+    }}
+  >
+    <div 
+      className="absolute inset-0"
+      style={{
+        backgroundImage: `url(${currentThumbnail})`,
+        backgroundSize: 'contain', // Changed from 'cover' to 'contain' for mobile
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat', // Added to prevent repeating
+        backgroundColor: '#000', // Added black background
+        '@media (min-width: 1024px)': {
+          backgroundSize: 'cover' // Keep cover for desktop
+        }
+      }}
+    />
+        {/* <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-16 h-16 bg-black/30 rounded-full flex items-center justify-center group-hover:bg-black/50 transition-colors">
+            <div 
+              className="w-0 h-0 ml-1"
+              style={{
+                borderTop: '12px solid transparent',
+                borderBottom: '12px solid transparent',
+                borderLeft: '24px solid white',
+              }}
+            />
+          </div>
+        </div> */}
+      </div>
+    )}
+  </div>
+</div>
+
+<style jsx global>{`
+/* Video in fullscreen mode */
+  video:fullscreen {
+    width: 100vw;
+    height: 100vh;
+    background: black;
+  }
+
+  /* Show controls only in fullscreen */
+  video:not(:fullscreen)::-webkit-media-controls-panel {
+    display: none !important;
+  }
+  /* Controls container positioning */
+  video:fullscreen::-webkit-media-controls {
+    padding-bottom: 0px; /* Added padding to move controls up from bottom */
+  }
+  video:fullscreen::-webkit-media-controls-panel {
+  display: flex !important;
+    position: absolute;
+    bottom: 10px; /* Moved up from bottom */
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.5));
+    padding: 12px 16px;
+    height: 64px; /* Increased height */
+  }
+
+  /* Ensure controls are visible */
+  video:fullscreen::-webkit-media-controls-play-button,
+  video:fullscreen::-webkit-media-controls-timeline,
+  video:fullscreen::-webkit-media-controls-current-time-display,
+  video:fullscreen::-webkit-media-controls-time-remaining-display,
+  video:fullscreen::-webkit-media-controls-mute-button,
+  video:fullscreen::-webkit-media-controls-volume-slider,
+  video:fullscreen::-webkit-media-controls-fullscreen-button {
+    display: flex !important;
+  }
+    /* Hide default controls in normal view */
+  video:not(:fullscreen)::-webkit-media-controls-panel {
+    display: none !important;
+        margin: 0 6px; /* Added spacing between controls */
+
+  }
+
+  /* Adjust timeline in fullscreen */
+  video:fullscreen::-webkit-media-controls-timeline {
+    margin: 0 16px;
+    height: 4px; /* Increased height for better visibility */
+  }
+`}</style>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// `
+// background-color: rgba(255, 255, 255, 0.1); add this to get the button bg
+//   /* Custom video controls styling */
+//   video::-webkit-media-controls-panel {
+//     background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+//   }
+  
+//   video::-webkit-media-controls-timeline,
+//   video::-webkit-media-controls-current-time-display,
+//   video::-webkit-media-controls-time-remaining-display {
+//     color: white;
+//   }
+  
+//   video::-webkit-media-controls-play-button,
+//   video::-webkit-media-controls-volume-slider,
+//   video::-webkit-media-controls-mute-button {
+//     filter: invert(1);
+//   }
+// `
+
+  // /* Custom video controls styling */
+  // video::-webkit-media-controls-panel {
+  //   background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  //    display: flex;
+  //    justify-content: space-between;
+  //    padding: 0 12px;
+  //  }
+   
+  //  /* Hide unwanted controls */
+  //  video::-webkit-media-controls-timeline,
+  //  video::-webkit-media-controls-current-time-display,
+  //  video::-webkit-media-controls-time-remaining-display,
+  //  video::-webkit-media-controls-volume-slider,
+  //  video::-webkit-media-controls-mute-button,
+  //  video::-webkit-media-controls-download-button,
+  //  video::-webkit-media-controls-overflow-button {
+  //    display: none !important;
+  //  }
+   
+  //  /* Style visible controls */
+  //  video::-webkit-media-controls-play-button,
+  //  video::-webkit-media-controls-fullscreen-button {
+  //    filter: invert(1);
+  //    opacity: 0.9;
+  //    margin: 0 8px;
+  //    padding: 8px;
+  //    transition: opacity 0.2s ease;
+  //  }
+   
+  //  video::-webkit-media-controls-play-button:hover,
+  //  video::-webkit-media-controls-fullscreen-button:hover {
+  //    opacity: 1;
+  //  }
+  //playbutton
+     {/* <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-16 h-16 bg-black/30 rounded-full flex items-center justify-center group-hover:bg-black/50 transition-colors">
+            <div 
+              className="w-0 h-0 ml-1"
+              style={{
+                borderTop: '12px solid transparent',
+                borderBottom: '12px solid transparent',
+                borderLeft: '24px solid white',
+              }}
+            />
+          </div>
+        </div> */}

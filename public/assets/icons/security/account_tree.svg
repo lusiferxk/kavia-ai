@@ -1,0 +1,20 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="account_tree">
+<mask id="mask0_2140_7618" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48">
+<rect id="Bounding box" width="48" height="48" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_2140_7618)">
+<path id="account_tree_2" d="M30.6675 33.0385V26.698H43.475V41.475H30.6675V35.3075V35.2825H30.6425H22.8905V14.9425V14.9175H22.8655H17.3885H17.3635V14.9425V21.2825H4.525V6.525H17.3635V12.673V12.698H17.3885H30.6425H30.6675V12.673V6.525H43.475V21.2825H30.6675V14.9425V14.9175H30.6425H25.1345H25.1095V14.9425V33.0385V33.0635H25.1345H30.6425H30.6675V33.0385ZM32.8865 19.0385V19.0635H32.9115H41.231H41.256V19.0385V8.769V8.744H41.231H32.9115H32.8865V8.769V19.0385ZM32.8865 39.231V39.256H32.9115H41.231H41.256V39.231V28.9425V28.9175H41.231H32.9115H32.8865V28.9425V39.231ZM6.744 19.0385V19.0635H6.769H15.1195H15.1445V19.0385V8.769V8.744H15.1195H6.769H6.744V8.769V19.0385Z" fill="url(#paint0_linear_2140_7618)" stroke="url(#paint1_linear_2140_7618)" stroke-width="0.05"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_2140_7618" x1="24" y1="6.5" x2="24" y2="41.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F26A1B"/>
+<stop offset="1" stop-color="#F7B690"/>
+</linearGradient>
+<linearGradient id="paint1_linear_2140_7618" x1="24" y1="6.5" x2="24" y2="41.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F26A1B"/>
+<stop offset="1" stop-color="#F7B690"/>
+</linearGradient>
+</defs>
+</svg>

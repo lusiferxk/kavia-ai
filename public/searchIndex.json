@@ -1,0 +1,416 @@
+[
+  {
+    "title": "Collaborate",
+    "content": "Collaborate This page is under construction. Please check back later for collaboration features.",
+    "path": "/documentation/collaborate",
+    "anchors": [
+      "collaborate"
+    ]
+  },
+  {
+    "title": "Choose App Type and Framework",
+    "content": "Choose App Type and Framework From the Home screen, select the Apps tab. Scroll down and choose Web as the app type and React as the framework. If you are building a mobile app you need to select Mobile and then framework . If you are building a backend for an application you need to select Backend and then framework . If you are building a full stack application , You need to select Full stack and the relevant Frameworks for the project. Please follow this link for the tutorial or scroll down to topic 5.2.",
+    "path": "/documentation/create-first-app/app-type",
+    "anchors": [
+      "choose-app-type-and-framework"
+    ]
+  },
+  {
+    "title": "Build With the Chat and See the Preview",
+    "content": "Build With the Chat and See the Preview In the chat panel, Kavia suggests options like coding, planning, testing, or answering questions. Reply with “Yes, please start the implementation” to continue. Kavia will proceed step-by-step. When it asks if it should move on to the next development stage (e.g., Step Two and Step Three), respond accordingly: This step-by-step chat guidance helps you stay in control of the development process while letting Kavia handle the heavy lifting. Preview To preview the app you're building, simply click the Preview button located at the top-left corner of the right panel. This will open a live preview of your application so you can see the current state of your build.",
+    "path": "/documentation/create-first-app/collaborate",
+    "anchors": [
+      "build-with-the-chat-and-see-the-preview",
+      "preview"
+    ]
+  },
+  {
+    "title": "Deploy Your First App",
+    "content": "Deploy Your First App Click the + button next to Deploy , select your container from the dropdown (for multi-container projects, all will appear). Then configure settings and click Create Frontend Deployment . Kavia will deploy your app automatically.",
+    "path": "/documentation/create-first-app/deploy",
+    "anchors": [
+      "deploy-your-first-app"
+    ]
+  },
+  {
+    "title": "Describe Your App",
+    "content": "Describe Your App Enter your app idea in the prompt box. For example: Then select Web as the type, and select the framework which suitable for the project scope, and click the Arrow icon to proceed. Kavia will automatically start building your app with the layout, UI, and code.",
+    "path": "/documentation/create-first-app/describe",
+    "anchors": [
+      "describe-your-app"
+    ]
+  },
+  {
+    "title": "Start Implementation and Workspace Setup",
+    "content": "Start Implementation and Workspace Setup Click Start Implementation to let Kavia set up your coding workspace. When ready, the screen splits into two panels: a chat on the left for interacting with Kavia, and a VS Code-style editor on the right showing your app’s code.",
+    "path": "/documentation/create-first-app/edit",
+    "anchors": [
+      "start-implementation-and-workspace-setup"
+    ]
+  },
+  {
+    "title": "Enable Edit Mode",
+    "content": "Enable Edit Mode Turn on Edit Mode to directly select and modify components in the preview without chat commands. Save your changes, and when finished, click Disable Edit Mode to continue normal work.",
+    "path": "/documentation/create-first-app/enable-edit-mode",
+    "anchors": [
+      "enable-edit-mode"
+    ]
+  },
+  {
+    "title": "Start Implementation and Workspace Setup",
+    "content": "Start Implementation and Workspace Setup Click Start Implementation to let Kavia set up your coding workspace. When ready, the screen splits into two panels: a chat on the left for interacting with Kavia, and a VS Code-style editor on the right showing your app’s code.",
+    "path": "/documentation/create-first-app/implementation",
+    "anchors": [
+      "start-implementation-and-workspace-setup"
+    ]
+  },
+  {
+    "title": "Build your first App",
+    "content": "(null);\r\n\r\n    return ( Build your first App Kavia is an AI-powered Workflow Manager that streamlines the entire software development lifecycle—from planning and design to deployment and monitoring.",
+    "path": "/documentation/create-first-app",
+    "anchors": [
+      "build-your-first-app"
+    ]
+  },
+  {
+    "title": "Preview",
+    "content": "Preview To preview the app you're building, simply click the Preview button located at the top-left corner of the right panel. This will open a live preview of your application so you can see the current state of your build.",
+    "path": "/documentation/create-first-app/preview",
+    "anchors": [
+      "preview"
+    ]
+  },
+  {
+    "title": "Review Project Overview",
+    "content": "Review Project Overview Kavia shows a summary of your app based on your prompt. Review it carefully. If anything is missing or incorrect, click Edit to make changes. Kavia automatically converts your prompt into a list of core features. Review each one carefully. You can edit, delete, or add features as needed. Finalizing this list early is important, as it directly influences how Kavia builds your application. Customize your app by choosing the frameworks and libraries you prefer in the Tech Stack section. In Style Guidelines, set your app’s colors, theme, and layout to match your brand or design preferences. Connect your GitHub account by selecting it from the dropdown. If it’s not available, click “Add Account” to link it. Make sure the correct account is selected before continuing. To provision your app’s database, connect your Supabase account by clicking the “Connect” button in the Supabase section. Supabase will handle database setup and management for your application. A popup will appear—click “Continue to Supabase” and complete the authentication process. Completing the process will Open another popup from kavia to select a project from Supabase. Once connected, create a Supabase project by assigning a name and password. After connecting both your GitHub and Supabase accounts, click Start Implementation to begin building your application with Kavia.",
+    "path": "/documentation/create-first-app/review-overview",
+    "anchors": [
+      "review-project-overview"
+    ]
+  },
+  {
+    "title": "Overview",
+    "content": "Overview Kavia AI offers flexible, subscription-based plans tailored for individuals and teams of all sizes. Each plan includes a monthly allocation of credits, which are used whenever you interact with the AI models—either through prompts or API calls. Credit consumption varies by model, depending on its complexity and capabilities. You can select the AI model that best suits your development goals and switch between them as needed. Understanding AI Models Kavia supports a range of cutting-edge AI models, each optimized for specific use cases: You can switch models at any time to align with your project’s complexity and credit budget. Getting Started Begin with 50,000 free credits to explore Kavia’s features and capabilities.\r\n                        Upgrade your plan whenever you need more power, higher credit limits, or team collaboration features to accelerate your development.",
+    "path": "/documentation/credit",
+    "anchors": [
+      "overview",
+      "understanding-ai-models",
+      "getting-started"
+    ]
+  },
+  {
+    "title": "FAQ",
+    "content": "Be clear and detailed about what you want. For example: Avoid vague or overly broad prompts. Always specify pages, roles, and expected behaviors when possible. Kavia’s chat is your AI development assistant — you can ask it to build features, fix bugs, analyze code,\r\n          and guide you through project workflows all via natural language. Yes, Kavia provides a full-featured VS Code environment inside the platform for you to inspect and edit\r\n          your project’s frontend and backend code. Absolutely. Use the Code Mode to make advanced customizations or debug your app. For quick UI fixes, you\r\n          can also use Edit Mode for instant visual updates. On the Kavia home page, select the type of application (web or mobile) and choose the technology stack you\r\n            want to use. Then, simply describe the app or the specific page you want to build in the chat, for example: Kavia’s AI will automatically generate both the frontend UI and backend logic to get you started quickly. Yes, Kavia supports Figma import to jumpstart your app design. Use the Deploy button in your project dashboard to publish your app instantly with a shareable URL. In your project dashboard, go to Settings &gt; SCM and connect your GitHub account to sync code\r\n          repositories, track changes, and enable version control. Yes, Kavia integrates with Supabase for backend services including databases, user authentication,\r\n          file storage, and serverless functions. Just ask the AI to add these features. FAQ Frequently Asked Questions about Kavia AI (",
+    "path": "/documentation/faq",
+    "anchors": [
+      "faq",
+      "frequently-asked-questions-about-kavia-ai"
+    ]
+  },
+  {
+    "title": "Attach Files",
+    "content": "Attach Files Kavia allows you to attach images and documents directly to your project,\r\n                helping you provide important resources such as logos, reference documents, or design assets . How to Attach Files Once uploaded, Kavia will incorporate your assets into the project according to your instructions.",
+    "path": "/documentation/features/attach",
+    "anchors": [
+      "attach-files",
+      "how-to-attach-files"
+    ]
+  },
+  {
+    "title": "Code Editor",
+    "content": "Code Editor View and edit your project’s code directly in Kavia. Kavia’s Code Mode gives you full access to your application’s underlying code through an integrated VS Code editor .\r\n                        This provides a powerful, familiar environment for developers who want complete control over both frontend and backend logic. Whether you need to customize components, write advanced logic, or integrate third-party services,\r\n                        Code Mode empowers you to go beyond visual editing with precision and flexibility. Stop Video ) : ( Play Video Use Code Mode to: Review the structure and logic generated by Kavia Make direct edits to frontend components and backend services Add custom functions, APIs, or third-party integrations Debug or fine-tune specific parts of your app manually With the built-in VS Code interface , developers can enjoy syntax highlighting, file navigation, code formatting,\r\n                        and more—making advanced custom development seamless within Kavia. Kavia bridges the gap between low-code speed and full-code power,\r\n                        letting you move effortlessly between AI-assisted workflows and professional-grade code editing.",
+    "path": "/documentation/features/code-editor",
+    "anchors": [
+      "code-editor",
+      "use-code-mode-to"
+    ]
+  },
+  {
+    "title": "Code Generation",
+    "content": "Code Generation This guide explains how to use Kavia’s AI-powered Code Generation Agent to build and manage your application,\r\n                generate code, and handle project-related tasks efficiently.",
+    "path": "/documentation/features/code-generation",
+    "anchors": [
+      "code-generation"
+    ]
+  },
+  {
+    "title": "Deploy",
+    "content": "Deploy Learn how to deploy your web applications with Kavia. Once your application is complete, you can deploy it directly from the Kavia interface and share it with the world.\r\n                        You also have the option to share a preview link during development to gather feedback before going live.\r\n                        Kavia makes it simple to publish, iterate, and distribute your applications with just a few clicks. Your deployed app will be accessible via a unique shareable link. Be sure to finalize your changes before publishing. Publishing Your App How to Publish Your App Stop Video ) : ( Play Video",
+    "path": "/documentation/features/deploy",
+    "anchors": [
+      "deploy",
+      "publishing-your-app",
+      "how-to-publish-your-app"
+    ]
+  },
+  {
+    "title": "Edit Mode",
+    "content": "Edit Mode Kavia’s Edit Mode enables you to click on elements in your live preview and modify them instantly.\r\n                You can update text, change colors, rearrange layout components, or adjust functionality using either direct edits or natural language prompts.\r\n                This mode is ideal for making fast, precise updates without switching to the code view or invoking AI assistance. Edit Mode gives you full control over the visual structure of your app, helping you fine-tune design and behavior on the spot,\r\n                        right within the canvas.Edit Mode gives you full control over the visual structure of your app, helping you fine-tune design and behavior on the spot, right within the canvas. Stop Video ) : ( Play Video When to Use Edit Mode Use Edit Mode in Kavia when you want to make quick, precise changes to your app’s interface without diving into the code.\r\n                        It's especially helpful for fine-tuning visuals and content directly on the canvas. You can use Edit Mode to: Change static text content within your application Update fonts, font sizes, or styling Modify colors of text, buttons, or other elements Select a specific element and use prompts to adjust its appearance or functionality",
+    "path": "/documentation/features/edit",
+    "anchors": [
+      "edit-mode",
+      "when-to-use-edit-mode",
+      "you-can-use-edit-mode-to"
+    ]
+  },
+  {
+    "title": "Figma to Kavia",
+    "content": "Figma to Kavia Import your Figma designs into Kavia and instantly begin building your application. Step-by-step: Kavia will translate your designs into production-ready code using the stack you've configured.",
+    "path": "/documentation/features/figma",
+    "anchors": [
+      "figma-to-kavia",
+      "step-by-step"
+    ]
+  },
+  {
+    "title": "Import",
+    "content": "Import In this article, you'll learn how to import and make changes to existing code from GitHub.\r\n                Follow these steps to achieve this. By following these steps, you'll be able to import and modify existing code from GitHub efficiently.",
+    "path": "/documentation/features/import",
+    "anchors": [
+      "import"
+    ]
+  },
+  {
+    "title": "Code Maintenance",
+    "content": "Code Maintenance This guide will show you how to maintain and update your existing codebase using Kavia AI’s Code Maintenance feature,\r\n                enabling seamless edits, refactoring, and optimization. Thank you for following this tutorial on code maintenance with Cavia AI.",
+    "path": "/documentation/features/maintenance",
+    "anchors": [
+      "code-maintenance"
+    ]
+  },
+  {
+    "title": "Features",
+    "content": "Features Kavia provides a powerful, AI-driven environment to plan, build, and scale software projects from idea to deployment.\r\n                        Whether you're a solo founder, startup team, or enterprise developer, Kavia streamlines every phase of the product lifecycle—from initial prompts to production-ready code. Below is a comprehensive list of features available in Kavia.\r\n                        Click on any feature to learn more about how it works and how to use it effectively.Project Welcome Screen (",
+    "path": "/documentation/features",
+    "anchors": [
+      "features",
+      "cardtitle"
+    ]
+  },
+  {
+    "title": "Project Planning",
+    "content": "Project Planning This section walks you through creating a new project from scratch in Kavia,\r\n                covering everything from initial setup to generating your application code. That's it! You've successfully created a new project from scratch.",
+    "path": "/documentation/features/planning",
+    "anchors": [
+      "project-planning"
+    ]
+  },
+  {
+    "title": "Kavia Query - Analyzing Your Existing Project",
+    "content": "Kavia Query - Analyzing Your Existing Project Kavia helps you understand and improve your existing software projects by analyzing code quality, documentation, performance, and security. What Kavia Can Analyze Code Analysis Reviews your code structure, language, and architecture Maps dependencies and reusable components Checks complexity and maintainability Documentation Reviews README files and inline comments Finds missing, outdated, or unclear documentation Checks setup guides and API docs Security Detects exposed secrets and vulnerabilities Reviews authentication and API security Reviews authentication and API security Performance Identifies slow code and bottlenecks Checks database queries and memory usage Reviews caching and optimization strategies How to Analyze Your Project in Kavia",
+    "path": "/documentation/features/query",
+    "anchors": [
+      "kavia-query---analyzing-your-existing-project",
+      "what-kavia-can-analyze",
+      "code-analysis",
+      "documentation",
+      "security",
+      "performance",
+      "how-to-analyze-your-project-in-kavia"
+    ]
+  },
+  {
+    "title": "Project Welcome Screen",
+    "content": "Project Welcome Screen The Project Welcome Screen is a powerful feature in Kavia that acts as a launchpad for your entire application.\r\n                Immediately after entering a prompt, Kavia generates a complete and editable project setup—allowing you to review and refine every key aspect before starting implementation.\r\n                This ensures that even a basic or unclear prompt results in a structured, production-ready foundation. Project Overview & Core Features Kavia automatically generates a clear summary of your application based on the prompt you provide.\r\n                            This overview helps you validate the direction of the project.\r\n                            If needed, you can make quick adjustments using the Edit option to better align it with your goals. Based on your prompt, Kavia breaks down your app into a list of core features.\r\n                            These are fully editable—you can add, remove, or modify them according to your specific requirements.\r\n                            Finalizing this feature list ensures the app is built with precision and in line with your expectations. Stack, Style & Layout This section allows you to customize the technology stack by choosing frameworks, libraries, and databases.\r\n                        Kavia provides a smart default configuration, but you can tailor it to fit your project.\r\n                        You can also define the app’s primary colors, theme, and page layout to match your design vision or brand guidelines. Third-Party Integrations & Start Implementation Here, you can connect services such as GitHub, Supabase, Stripe, and others.\r\n                        If your desired account isn’t listed, use the Add Account button to link it.\r\n                        Once all setup details are reviewed and confirmed, clicking Start Implementation begins the actual build process in Kavia.",
+    "path": "/documentation/features/welcome",
+    "anchors": [
+      "project-welcome-screen",
+      "project-overview--core-features",
+      "stack-style--layout",
+      "third-party-integrations--start-implementation"
+    ]
+  },
+  {
+    "title": "footer",
+    "content": "© 2025 KAVIA AI – All Rights Reserved.",
+    "path": "/documentation/footer",
+    "anchors": []
+  },
+  {
+    "title": "Choose App Type and Framework",
+    "content": "Choose App Type and Framework From the Home screen, make sure Full Stack is selected under Apps and Projects . Then select Full Stack as the app type. For the frontend framework, choose React , and for the backend framework, select Express.js .",
+    "path": "/documentation/full-stack/app-type",
+    "anchors": [
+      "choose-app-type-and-framework"
+    ]
+  },
+  {
+    "title": "Describe Your App",
+    "content": "Describe Your App Enter your app idea in the prompt box (e.g., “create a task management system”), select the frameworks, and click the Arrow icon. Kavia will start building your app with frontend and backend code, UI layout, and logic.",
+    "path": "/documentation/full-stack/describe",
+    "anchors": [
+      "describe-your-app"
+    ]
+  },
+  {
+    "title": "Start Implementation and Workspace Setup",
+    "content": "Start Implementation and Workspace Setup Click Start Implementation to let Kavia prepare your coding workspace. This may take a moment. When ready, the interface will appear for you to begin working. From here onwards you can follow starting from the Step 5 of the Web based App .",
+    "path": "/documentation/full-stack/implementation",
+    "anchors": [
+      "start-implementation-and-workspace-setup"
+    ]
+  },
+  {
+    "title": "Review Project Overview",
+    "content": "Review Project Overview Kavia shows a summary of your app based on your prompt. Review it carefully, and use Edit to update or correct any details. Configure Core Features In the Core Features section, Kavia breaks down your requirements into individual features. Select Your Tech Stack and Style In the Tech Stack section, you can customize the technologies Kavia will use to build your app. Connect Your GitHub Account In the Third-Party Integrations section: Connect Your Supabase Account Supabase will be used to provision the database for your application. To connect Supabase: Start Implementation After connecting both your GitHub and Supabase accounts, click Start Implementation to begin building your application with Kavia.",
+    "path": "/documentation/full-stack/review-overview",
+    "anchors": [
+      "review-project-overview",
+      "configure-core-features",
+      "select-your-tech-stack-and-style",
+      "connect-your-github-account",
+      "connect-your-supabase-account",
+      "to-connect-supabase",
+      "start-implementation"
+    ]
+  },
+  {
+    "title": "home",
+    "content": "Resource Center Dive into KAVIA with our starter videos, articles, and tutorials. (",
+    "path": "/documentation/home",
+    "anchors": [
+      "resource-center",
+      "itemtitle"
+    ]
+  },
+  {
+    "title": "Custom API Integration",
+    "content": "Custom API Integration Beyond native and verified integrations, Kavia allows developers to connect any external API.",
+    "path": "/documentation/integrations/api-integration",
+    "anchors": [
+      "custom-api-integration"
+    ]
+  },
+  {
+    "title": "GitHub Integration",
+    "content": "GitHub Integration Integrating GitHub version control collaborative workflows deployment flexibility throughout the development lifecycle. Git is a version control system that tracks code changes. GitHub is the industry-standard platform for hosting Git repositories. By connecting GitHub to your Kavia project, every change you make is backed up in real time, ensuring full transparency, safe collaboration, and the freedom to host your code wherever you choose. Why Connect GitHub to Kavia? When you link your project to GitHub, Kavia keeps both frontend and backend codebases always synced,\r\n                            backed up, and ready for team collaboration or external deployment. Key Benefits of GitHub Integration Kavia’s GitHub integration gives you the best of both worlds: intelligent, AI-assisted development inside the platform, and full professional-grade control outside of it. Connecting Kavia to your GITHUB account To start using GitHub with your Kavia project, you’ll need to connect your GitHub account and create or link a repository. This enables version control, team collaboration, and real-time syncing of your project’s code. Kavia offers two ways to set it up: Method 1: Connect from the admin dashboard Stop Video ) : ( Play Video Method 2: Connect During Project Setup Stop Video ) : ( Play Video Once connected, your GitHub account will be available across all projects in Kavia, and you can easily link repositories as needed during project setup or from individual project settings.",
+    "path": "/documentation/integrations/github-integration",
+    "anchors": [
+      "github-integration",
+      "why-connect-github-to-kavia",
+      "key-benefits-of-github-integration",
+      "connecting-kavia-to-your-github-account",
+      "method-1-connect-from-the-admin-dashboard",
+      "method-2-connect-during-project-setup"
+    ]
+  },
+  {
+    "title": "Supabase Integration",
+    "content": "Supabase Integration Integrate a powerful backend into your Kavia application with built-in Supabase support. Kavia’s native Supabase integration allows you to manage both your frontend interface and backend database from a single, unified workspace.\r\n                    Without switching tools, you can design your app’s UI and configure a fully functional cloud-hosted PostgreSQL database—making full-stack development seamless and accessible. Whether you're a non-technical user relying on Kavia's intelligent guidance or an experienced developer leveraging Supabase's advanced capabilities,\r\n                    this integration offers the flexibility and depth needed to build production-ready apps with ease. With Supabase, you can: Set up and connect your database in just a few clicks Automatically generate and manage tables, fields, and relations Use Supabase Auth, Storage, and APIs to enhance your app functionality View, query, and update data directly through Kavia’s interface Kavia streamlines backend setup so you can focus on building great experiences—without worrying about infrastructure. Key Features Unlocked by Supabase Integration in Kavia Why Use Supabase with Kavia? With Kavia, you don’t need to juggle separate tools for frontend and backend development.\r\n                            By simply interacting with the AI interface, you can build responsive UIs and have the underlying database and logic configured automatically. For example, if you prompt Kavia with: Kavia will generate the UI for the form, connect it to Supabase,\r\n                            and create the appropriate table to store submissions—all in one seamless flow. This end-to-end integration is what makes Kavia powerful:\r\n                            it speeds up development, reduces friction, and makes full-stack app building accessible for everyone—from beginners to experienced developers. Getting Started: Connecting Supabase to Kavia Connecting a Supabase backend to your Kavia project is simple and fast. All you need is an existing Supabase account Supabase | The Postgres Development Platform Step 1: Create a Supabase Account Stop Video ) : ( Play Video Supabase | The Postgres Development Platform Step 2: Create a New Project in Supabase Once you're signed in to Supabase: After the setup is complete, your Supabase project is ready to connect with Kavia. Step 3: Connect Your Kavia Project to Supabase Once your application is ready in Kavia: You can find both these values in your section. Once entered, Kavia will automatically link your app to Supabase and set up the necessary backend functionality based on your prompt — including authentication, database tables, and more.",
+    "path": "/documentation/integrations/supabase-integration",
+    "anchors": [
+      "supabase-integration",
+      "with-supabase-you-can",
+      "key-features-unlocked-by-supabase-integration-in-kavia",
+      "why-use-supabase-with-kavia",
+      "getting-started-connecting-supabase-to-kavia",
+      "step-1-create-a-supabase-account",
+      "step-2-create-a-new-project-in-supabase",
+      "step-3-connect-your-kavia-project-to-supabase"
+    ]
+  },
+  {
+    "title": "Integrations in Kavia",
+    "content": "Integrations in Kavia Kavia supports seamless integrations that extend the functionality of your web and mobile applications.\r\n                        Whether you're adding authentication, databases, storage, or third-party services, Kavia provides both\r\n                        native and custom integration options to fit your project needs. Play Video Introduction Integrations allow you to enhance your application by connecting it to external systems and APIs. Kavia\r\n                            makes this process straightforward through pre-configured native integrations and flexible support for\r\n                            third-party APIs. With Kavia, you can: Connect your project to version control systems like GitHub Add robust backend capabilities using platforms such as Supabase Integrate third-party APIs for specific use cases such as payments, email delivery, geolocation, or\r\n                                analytics Understanding APIs An API (Application Programming Interface) is a standardized way for different software systems to\r\n                            communicate. APIs expose functionality—such as retrieving data, sending notifications, or processing\r\n                            transactions—that your application can use without having to build those services from scratch. Examples of API-driven integrations include: Sending transactional emails via SendGrid Processing payments through Stripe Storing files on Amazon S3 Authenticating users with OAuth providers like Google or GitHub Kavia enables you to work with these APIs easily by generating or integrating the required code, handling\r\n                            authentication flows, and managing data exchanges. Native Integrations Kavia includes native support for popular platforms that are commonly used in modern application\r\n                            development. These integrations are designed for speed, reliability, and low-configuration setup. ( Best Practices To get the most out of integrations in Kavia:",
+    "path": "/documentation/integrations-v2",
+    "anchors": [
+      "integrations-in-kavia",
+      "introduction",
+      "with-kavia-you-can",
+      "understanding-apis",
+      "examples-of-api-driven-integrations-include",
+      "native-integrations",
+      "cardtitle",
+      "best-practices",
+      "to-get-the-most-out-of-integrations-in-kavia"
+    ]
+  },
+  {
+    "title": "Kavia Documentation v2.3",
+    "content": "Kavia Documentation v2.3 Welcome to the comprehensive documentation for Kavia AI - the revolutionary AI-powered \r\n          Workflow Manager that transforms software product development. AI-Powered Development Build applications using natural language prompts with AI assistance throughout the \r\n              entire development lifecycle. Learn More → For Everyone From non-technical users to engineering leaders, Kavia provides tools and features \r\n              tailored to every skill level. Learn More → What is Kavia? Kavia is an innovative AI-powered Workflow Manager that revolutionizes the process of \r\n          building software products. Kavia Packages: Overview of Inspect, Plan & Build Kavia provides a unified suite of AI-powered tools that span the entire software product \r\n          development process. Quick Start Get up and running with Kavia in just a few minutes: Signup Login",
+    "path": "/documentation",
+    "anchors": [
+      "kavia-documentation-v23",
+      "ai-powered-development",
+      "for-everyone",
+      "what-is-kavia",
+      "kavia-packages-overview-of-inspect-plan--build",
+      "quick-start"
+    ]
+  },
+  {
+    "title": "Prompting Guide for Kavia",
+    "content": "Prompting Guide for Kavia Best Practices for Communicating Effectively with Kavia Kavia is a sophisticated AI platform purpose-built to streamline the development of web and mobile applications. As with any intelligent system, the quality of its outputs depends heavily on the clarity and structure of your inputs. This guide outlines foundational and advanced prompting strategies to help users—both technical and non-technical—communicate effectively with Kavia and maximize its capabilities. Introduction to Prompting Prompting is the practice of instructing the AI using natural language. In Kavia, prompts are used to generate UI components, configure logic, scaffold backend services, automate workflows, and more. A prompt serves as both a directive and a design brief, ensuring that the AI understands exactly what needs to be done. Well-structured prompting leads to better results, reduced iteration, and faster development. Why Prompting Matters Prompting is not a passive activity. The difference between a vague request and a well-specified instruction can result in dramatically different outputs. Effective prompting allows users to: Build and iterate faster Generate consistent, production-ready outputs Reduce bugs and misunderstandings Leverage AI capabilities even without writing code Align outputs with specific business or technical requirements By mastering prompt design, you unlock the full potential of Kavia’s AI engine. Understanding How Kavia Interprets Prompts Kavia is powered by large language models (LLMs), which generate responses based on statistical patterns from their training data. These models are powerful but literal—they do not inherently understand your goals unless you state them explicitly. Consider the following key characteristics: No implicit understanding: If a detail isn’t specified, it may be ignored or guessed incorrectly. Context limitations: AI models operate within a finite memory window. Long sessions or prompts may lose earlier context unless restated. Literal interpretation: The AI will follow instructions precisely. Ambiguity often leads to undesired results. Risk of hallucination: When uncertain, the AI may generate plausible-sounding—but incorrect—information. Prompting should be approached as you would instruct a junior developer or assistant—clear, thorough, and with minimal assumptions. Structuring a High-Quality Prompt An effective prompt typically consists of four key components: Section Purpose Context Provide background about the app, technologies in use, or the current stage of development. Task Clearly state the action the AI should take. Guidelines Specify formatting, tone, coding conventions, or any other expectations. Constraints Include limitations, exclusions, or dependencies the AI must consider. Example Prompt: This format minimizes ambiguity and ensures the AI has everything it needs to generate high-quality results. The SCOPE Framework for Prompting in Kavia To help users consistently write effective prompts, we introduce the SCOPE Framework —a practical and robust guideline tailored specifically for application development with AI. Principle Description Specific Define clear, narrow objectives. Avoid vague or generalized requests. Contextual Supply relevant background information, including the tech stack, use case, or user scenario. Organized Structure the prompt using steps or sections. Logical sequencing improves comprehension. Precise Specify expected formats, constraints, naming conventions, or implementation rules. Evolving Use feedback and iteration to refine prompts and improve results over time. Specific Avoid vague objectives. Instead of: Use: Contextual Supply relevant background to inform the AI. Example: Organized Break down complex instructions into clear, logical steps. Example: Precise Indicate formatting requirements and constraints. Example: Evolving Prompting is an iterative process. Refine based on results. Examples: “The generated component is missing error handling. Please update the code to include form-level error messages.” “This output lacks responsiveness. Please adapt the layout for mobile using Tailwind’s responsive classes.” “Summarize the current state of the app after all updates.” Kavia also supports Meta Prompting , where you can ask the AI how to improve your prompt itself: Prompting Best Practices for Kavia To ensure optimal interaction with Kavia's AI engine, apply the following guidelines: Clearly state the goal of each prompt. Always include technical context , such as the programming language or frameworks involved. Use bullet points or numbered steps to break down multi-part tasks. Reiterate important constraints when working with long prompts or conversations. Avoid open-ended or subjective language unless followed by clarification. When in doubt, ask the AI for a summary or clarification before proceeding.",
+    "path": "/documentation/prompt-engineering",
+    "anchors": [
+      "prompting-guide-for-kavia",
+      "introduction-to-prompting",
+      "why-prompting-matters",
+      "understanding-how-kavia-interprets-prompts",
+      "structuring-a-high-quality-prompt",
+      "example-prompt",
+      "the-scope-framework-for-prompting-in-kavia",
+      "specific",
+      "instead-of",
+      "use",
+      "contextual",
+      "example",
+      "organized",
+      "precise",
+      "evolving",
+      "examples",
+      "prompting-best-practices-for-kavia"
+    ]
+  },
+  {
+    "title": "Best Practices",
+    "content": "Best Practices Project Welcome Screen Why it matters: The Project Welcome screen is the foundation of your application in Kavia. It’s where you define the key settings and direction of your build—including core features, tech stack, layout, and integrations. Spending a few minutes reviewing this screen properly can save hours later in the development process. What to check: Prompting Best Practices Great prompts make Kavia work smarter for you. Think of the AI as your development partner—it only builds what you describe. Clear, detailed instructions help avoid bugs, save time, and get closer to your intended result. Tips for Writing Effective Prompts: Use Edit Mode for Quick UI Fixes Kavia’s Visual Edit Mode is the fastest way to make simple design changes without writing prompts or using AI credits. It’s especially useful for minor UI adjustments and gives you full control with undo support. When to Use Edit Mode: Stay Strategic Working with Kavia’s AI can accelerate your development process dramatically—but like any powerful tool, it requires thoughtful use. Sometimes things click instantly, and other times, refining a feature takes a few tries. That’s part of the process. Why it matters: Rushing through prompts or skipping validation can lead to confusion or broken workflows later. The last steps in a project often involve the most detail-oriented adjustments—don't underestimate their importance. What to keep in mind: Staying calm and methodical helps you get the best results out of Kavia. Use the Documentation and Community Resources Kavia’s documentation isn’t just a manual—it’s your co-pilot. It’s filled with examples, setup guides, prompting strategies, integration tips, and common troubleshooting steps. Whether you're building a new feature or connecting a backend, you’ll often find answers there before needing to rephrase your prompt. Where to turn: Never feel stuck—between the docs, AI chat, and community, there’s always help available.",
+    "path": "/documentation/tips-tricks/best-practices",
+    "anchors": [
+      "best-practices",
+      "project-welcome-screen",
+      "why-it-matters",
+      "what-to-check",
+      "prompting-best-practices",
+      "tips-for-writing-effective-prompts",
+      "use-edit-mode-for-quick-ui-fixes",
+      "when-to-use-edit-mode",
+      "stay-strategic",
+      "what-to-keep-in-mind",
+      "use-the-documentation-and-community-resources",
+      "where-to-turn"
+    ]
+  },
+  {
+    "title": "Tips & Tricks",
+    "content": "Tips & Tricks Kavia is a powerful and intelligent platform designed to accelerate the way modern software is built. Whether you're creating full-stack web apps,\r\n                        mobile applications, or analyzing and improving existing codebases, Kavia allows you to do it all with natural language prompts and real-time feedback. Its unified workspace and AI-first workflow dramatically reduce the need for context switching or manual setup.\r\n                        To help you get the most out of everything Kavia offers, this section covers useful tips, best practices,\r\n                        and common pitfalls—whether you’re just getting started or looking to level up your workflow. (",
+    "path": "/documentation/tips-tricks",
+    "anchors": [
+      "tips--tricks",
+      "cardtitle"
+    ]
+  },
+  {
+    "title": "SEO",
+    "content": "of the page (or in a SEO Make your Kavia-built websites more discoverable on search engines like Google. Search Engine Optimization (SEO) increases your site’s visibility by improving how\r\n            search engines index and rank your content. While Kavia doesn’t yet include automated\r\n            SEO features, you can easily guide the AI through structured prompts and manual edits to\r\n            ensure best practices are followed. SEO Fundamentals in Kavia Add Custom Metadata (Titles, Descriptions, Keywords) Metadata helps search engines understand your content before rendering it. You can\r\n              generate and edit metadata in your Kavia project through prompts. Prompt example: What to include: Creating a Sitemap Manually A sitemap lists all the important pages of your site for Google to crawl. Kavia does\r\n              not auto-generate sitemaps yet, but you can create one yourself: How to create and submit a sitemap in Kavia: Configure robots.txt to Control Crawling To add this in Kavia: Use Proper Heading Structure Search engines look at headings (H1–H6) to understand the structure of your content.\r\n              You should: Prompt example: Add Internal Links Between Pages Internal links improve navigation and distribute page authority. Steps: Prompt example: Add Schema Markup (Structured Data) Schema helps Google display rich snippets like FAQs, reviews, or events. Though not\r\n              automatic, you can ask Kavia to generate schema for specific pages. Steps: Advanced SEO Tips for Kavia Projects Steps:",
+    "path": "/documentation/tips-tricks/seo",
+    "anchors": [
+      "seo",
+      "prompt-example",
+      "what-to-include",
+      "to-add-this-in-kavia",
+      "steps"
+    ]
+  },
+  {
+    "title": "Trouble Shooting",
+    "content": "Trouble Shooting Actionable steps to identify and fix issues while building with Kavia. Kavia gives you powerful tools to build apps with just natural language, but errors can\r\n            still happen—either through incorrect logic, unexpected behavior, or broken code. Since\r\n            there’s no “auto-fix” button, resolving problems is a hands-on process using the chat\r\n            interface. Here’s how to handle issues effectively: Spot Errors in the Preview Most obvious issues will show up in the live preview as error messages. These could\r\n              include missing variables, failed imports, or runtime errors. What to do: Manually Test What You Build Sometimes, there won’t be a visible error—but the functionality may still be broken or\r\n              behave differently from what you intended. This is called silent failure or unexpected\r\n              behavior. Tips for catching it: Prompt example: Refine Your Prompt If Something Was Misinterpreted KIf Kavia didn’t build what you asked for—or added something you didn’t want—it’s\r\n              often a prompt issue. Organize Prompts into Smaller Tasks If the problem spans multiple parts of your app (UI, logic, roles), try isolating each\r\n              issue. Avoid fixing everything at once. Break it down into: Then test each one before moving to the next. Stay in Chat Mode and Iterate Since Kavia doesn't have a visual debugger yet, think of the AI as your engineering\r\n              teammate. Use the chat to: Always test after each round of interaction. If You're Really Stuck… Here are fallback strategies: Common Troubleshooting Areas in Kavia These are the most frequent categories where issues may arise: If something feels off—test it, prompt it, and don’t hesitate to ask again. Kavia gets\r\n        better the more precisely you engage.",
+    "path": "/documentation/tips-tricks/troubleshooting",
+    "anchors": [
+      "trouble-shooting",
+      "what-to-do",
+      "tips-for-catching-it",
+      "prompt-example"
+    ]
+  }
+]

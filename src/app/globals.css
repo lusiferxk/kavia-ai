@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Add to global CSS */
+[id="inspect-section"],
+[id="plan-section"],
+[id="build-section"] {
+  scroll-margin-top: 120px; /* Adjust based on header height */
+}
+
+.product-steps {
+  position: sticky;
+  top: 80px; /* Adjust based on your header height */
+  z-index: 50;
+  background: #231F20;
+  padding-bottom: 20px;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+.cookie-banner {
+  position: fixed !important;
+  bottom: 1rem !important;
+  left: 1rem !important;
+}
+
+/* Minimal styling for legal content - preserves Word document formatting */
+.legal-content {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* Ensure links are visible */
+.legal-content a {
+  color: #3B82F6;
+  transition: color 0.2s;
+}
+
+.legal-content a:hover {
+  color: #2563EB;
+}
+
+/* Optional: Add padding to lists if needed */
+.legal-content ul,
+.legal-content ol {
+  padding-left: 1.5rem;
+}
+
+/* Preserve all inline styles from Word document */
+.legal-content * {
+  /* This ensures inline styles take precedence */
+}

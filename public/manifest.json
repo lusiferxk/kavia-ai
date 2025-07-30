@@ -1,0 +1,21 @@
+{
+    "name": "KAVIA AI",
+    "short_name": "KAVIA",
+    "description": "Launch your product faster with our AI-powered development platform that streamlines your workflow and enhances productivity.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#231F20",
+    "theme_color": "#F26A1B",
+    "icons": [
+      {
+        "src": "/icon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/icon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }

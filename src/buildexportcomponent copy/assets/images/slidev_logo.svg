@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96" id="Slidev--Streamline-Svg-Logos" height="24" width="24">
+  <desc>
+    Slidev Streamline Icon: https://streamlinehq.com
+  </desc>
+  <path fill="#000000" fill-opacity="0.5" d="M89.4919 13.6533H19.1616c-3.0419 0-5.5078 2.4659-5.5078 5.5078v70.3304c0 3.0418 2.4659 5.5078 5.5078 5.5078h70.3303c3.0419 0 5.5078-2.466 5.5078-5.5078V19.1611c0-3.0419-2.4659-5.5078-5.5078-5.5078Z"></path>
+  <path fill="#000000" fill-opacity="0.75" d="M65.8225 1H17.5234C8.39778 1 1 8.39778 1 17.5234v48.2991c0 9.1257 7.39778 16.5234 16.5234 16.5234h48.2991c9.1257 0 16.5234-7.3977 16.5234-16.5234V17.5234C82.3459 8.39778 74.9482 1 65.8225 1Z"></path>
+  <path fill="#000000" d="M51.7297 58.7784c-1.0638-3.97-1.5956-5.9549-1.0694-7.3258.459-1.1957 1.4038-2.1404 2.5995-2.5994 1.3708-.5262 3.3558.0056 7.3257 1.0693l19.7321 5.2872c3.9699 1.0638 5.9548 1.5956 6.8789 2.7368.806.9953 1.1518 2.286.9515 3.551-.2297 1.4502-1.6828 2.9033-4.5889 5.8095l-14.445 14.4449c-2.9061 2.9062-4.3592 4.3593-5.8095 4.5889-1.2651.2004-2.5557-.1454-3.551-.9514-1.1412-.9241-1.673-2.9091-2.7367-6.8789l-5.2872-19.7321Z"></path>
+  <defs>
+    <linearGradient id="a" x1="13.654" x2="8148.25" y1="-709.422" y2="8148.25" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3acbd4"></stop>
+      <stop offset="1" stop-color="#2988b1"></stop>
+    </linearGradient>
+    <linearGradient id="b" x1="-857.651" x2="6877.67" y1="-993.228" y2="8135.59" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#95f0cf"></stop>
+      <stop offset="1" stop-color="#3ab9d5"></stop>
+    </linearGradient>
+    <linearGradient id="c" x1="45.463" x2="517.062" y1="-256.086" y2="3993.17" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffeb83"></stop>
+      <stop offset="0" stop-color="#ffeb83"></stop>
+      <stop offset=".083" stop-color="#ffdd35"></stop>
+      <stop offset=".602" stop-color="#ffbb13"></stop>
+      <stop offset="1" stop-color="#ffa800"></stop>
+    </linearGradient>
+  </defs>
+</svg>
