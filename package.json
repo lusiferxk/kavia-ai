@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "npm run build-search && next build && next export",
+    "build": "npm run build-search && next build",
     "build-search": "node scripts/generateSearchIndex.js",
     "start": "next start",
     "lint": "next lint"
