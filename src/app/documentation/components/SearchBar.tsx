@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { Search } from 'lucide-react'
 import Fuse from 'fuse.js'
+import { motion, AnimatePresence } from "framer-motion"
 
 interface SearchResult {
   title: string
@@ -16,7 +17,7 @@ function highlightMatch(text: string, query: string) {
   const regex = new RegExp(`(${query})`, 'gi')
   return text.split(regex).map((part, i) =>
     part.toLowerCase() === query.toLowerCase() ? (
-      <mark key={i} className="bg-yellow-300 text-black rounded-sm px-1">
+      <mark key={i} className="bg-[#F26A1B] text-black rounded-sm px-1">
         {part}
       </mark>
     ) : (
@@ -96,7 +97,7 @@ export default function SearchBar() {
       </div>
 
       {results.length > 0 && (
-        <div className="absolute top-full mt-2 w-full bg-[#1e1e1e] rounded-xl shadow-xl z-50 border border-neutral-700 max-h-72 overflow-y-auto">
+        <div className="absolute top-full mt-2 w-full bg-gradient-to-bl from-[#ff7b0040] via-[#231f20] to-[#231f20] rounded-xl shadow-xl z-50 border border-neutral-700 max-h-72 overflow-y-auto">
           {results.map((item, i) => (
             <div
               key={i}

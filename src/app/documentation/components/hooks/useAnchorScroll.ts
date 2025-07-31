@@ -3,14 +3,13 @@
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 
-export function useAnchorScroll(highlightColor = '#facc15') {
+export function useAnchorScroll() {
   const pathname = usePathname()
 
   useEffect(() => {
     const contentArea = document.querySelector('main')
     if (!contentArea) return
 
-    // Auto-generate ID from heading text if missing
     const headings = contentArea.querySelectorAll('h1, h2, h3, h4, h5, h6')
     headings.forEach((el) => {
       if (!el.id) {
@@ -37,17 +36,9 @@ export function useAnchorScroll(highlightColor = '#facc15') {
           top: offsetPosition,
           behavior: 'smooth',
         })
-
-        const originalBg = target.style.backgroundColor
-        target.style.transition = 'background-color 1s ease'
-        target.style.backgroundColor = highlightColor
-
-        setTimeout(() => {
-          target.style.backgroundColor = originalBg || 'transparent'
-        }, 1200)
       }
     }
 
-    setTimeout(scrollToAnchor, 150)
+    setTimeout(scrollToAnchor, 300)
   }, [pathname])
 }
